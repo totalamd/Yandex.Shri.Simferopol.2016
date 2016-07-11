@@ -4,8 +4,9 @@
 
 .wrapper {
   width: 800px;
-  margin: auto;
+  margin: 70px auto;
   counter-reset: achieve-counter;
+  box-shadow: 0px 21px 40px 0px rgba(0, 0, 0, 0.19);
 }
 
 .clearfix::after {
@@ -18,7 +19,8 @@
   font-family: sans-serif;
   font-size: 2em;
   font-weight: 600;
-  margin: 70px 25% 40px;
+  margin: 0 25%;
+  padding: 30px 0;
   text-align: center;
 }
 

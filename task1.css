@@ -4,9 +4,8 @@
 
 .wrapper {
   width: 800px;
-  margin: 70px auto;
+  margin: 50px auto 70px;
   counter-reset: achieve-counter;
-  box-shadow: 0px 21px 40px 0px rgba(0, 0, 0, 0.19);
 }
 
 .clearfix::after {
@@ -17,11 +16,16 @@
 
 .employeeName {
   font-family: sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: 600;
-  margin: 0 25%;
-  padding: 30px 0;
+  margin: 0 10%;
+  padding: 50px 0 50px;
   text-align: center;
+}
+
+.achievesArray {
+	box-shadow: 0px 21px 40px 0px rgba(0, 0, 0, 0.19);
+	padding-top: 30px;
 }
 
 .achieve {

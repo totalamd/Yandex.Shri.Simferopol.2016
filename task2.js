@@ -1,8 +1,9 @@
 /** 
   * @param {Array} data – массив CSS классов
   * @return {Object.<string, string>} - объект с полями {старое имя класса: минимизированное имя класса}
-  * @type {string} - старое имя класса
-  * @type {string} - минифицированное имя класса
+  * @field {string} - старое имя класса
+  * @field {string} - минифицированное имя класса
+  * Test are in readme.md
   */
 module.exports = function (data) {
   // Ваш код
@@ -28,7 +29,7 @@ module.exports = function (data) {
 
     while (true) {
       // doing reduceRight() to get inversed digit positioning:
-      // most significant digit at the first place
+      // most significant digit at the first place (i.e. at the left side)
       minified_name = accumulator.reduceRight((prev_val, curr_val) => {
         return prev_val + ALPHABET[curr_val];
       }, '');
@@ -60,8 +61,8 @@ module.exports = function (data) {
   /**
    * list_of_class_names
    * @type {Object.<string, number>}
-   * @param {String} - origin CSS class name
-   * @param {Number} - number of times CSS class name occurs in incoming data
+   * @field {String} - origin CSS class name
+   * @field {Number} - number of times CSS class name occurs in incoming data
    * */
   data.forEach(function (element, index) {
     if (typeof element !== 'string') { throw new TypeError(`Element at index ${index} is not string`) }
@@ -76,8 +77,8 @@ module.exports = function (data) {
   /**
     * sorted_by_freq_array
     * @type {Array.<Array.<string, number>>} - Array of Array<string, number>
-    * @param {String} - origin CSS class name
-    * @param {Number} - number of times CSS class name occurs in incoming data
+    * @field {String} - origin CSS class name
+    * @field {Number} - number of times CSS class name occurs in incoming data
     * */
   const sorted_by_freq_array = [];
   for (var key in list_of_class_names) {

@@ -40,9 +40,9 @@ module.exports = function (data) {
         if (
           // check if current digit overflow
           (value >= BASE) ||
-          // special check: BASE for first digit reduced by 10
+          // special check: BASE for first digit reduced by 12
           // to avoid numbers at the first position in minified name
-          (index === accumulator.length - 1 && value >= BASE - 10)
+          (index === accumulator.length - 1 && value >= BASE - 12)
         ) {
           accumulator[index] = 0;
           ++accumulator[index + 1] || (accumulator[index + 1] = 0);

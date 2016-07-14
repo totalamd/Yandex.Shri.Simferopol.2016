@@ -16,18 +16,27 @@ module.exports = function (data) {
   const BASE = ALPHABET.length;
 
   /**
+   * iterator возвращает минифицированное имя класса
+   * которое представляет из себя 64-ричное число
+   * 
    * iterator returns new minified class name
    * which is a number in base 64 number system
    * @return {String}
    */
   const iterator = (function* () {
+    // accumulator хранит в себе разряды 64-ричного числа  
+    // старший разряд числа хранится в последнем индексе массива
+    //
     // accumulator is array containing digits of current base-64 number
-    // most significant digit at last place
+    // most significant digit at last place (little-endian)
     // @type Number[]
     let accumulator = [0];
     let minified_name;
 
     while (true) {
+      // reduceRight() делается для того, чтобы получить обратный порядок разрядов
+      // таким образом, при кодировании на выходе старший разряд оказывается слева (big-endian)
+      //
       // doing reduceRight() to get inversed digit positioning:
       // most significant digit at the first place (i.e. at the left side)
       minified_name = accumulator.reduceRight((prev_val, curr_val) => {
@@ -38,10 +47,16 @@ module.exports = function (data) {
 
       accumulator.forEach((value, index) => {
         if (
+          // проверка на переполнение
+          //
           // check if current digit overflow
           (value >= BASE) ||
+          // специальная проверка первого разряда числа
+          // т.к. имя класса не может начинаться с цифр или _ и -
+          // то мы сокращаем основание системы счисления на 12
+          // 
           // special check: BASE for first digit reduced by 12
-          // to avoid numbers at the first position in minified name
+          // to avoid numbers, - and _ at the first position in minified name
           (index === accumulator.length - 1 && value >= BASE - 12)
         ) {
           accumulator[index] = 0;

@@ -33,6 +33,7 @@
   margin: auto 50px;
   width: 100px;
   text-align: center;
+  transform: translateZ(0);
 }
 
 .achieve__image {

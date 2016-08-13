@@ -1,4 +1,4 @@
-# Tests for test2.js:
+### Tests for test2.js:
 
 ```javascript
 data = 'test';
